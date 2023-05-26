@@ -79,15 +79,15 @@ function RegisterUser(){
             })
             set(ref(db,"patient/" + userid.value + "/Bpm/"),
             {
-                d0: "0",d1: "0",d2: "0",d3: "0",d4: "0",
+                0: 0, 1: 0, 2: 0, 3: 0, 4: 0,
             })
             set(ref(db,"patient/" + userid.value + "/SPO2/"),
             {
-                d0: "0",d1: "0",d2: "0",d3: "0",d4: "0",
+                0: 0, 1: 0, 2: 0, 3: 0, 4: 0,
             })
             set(ref(db,"patient/" + userid.value + "/Temp/"),
             {
-                d0: "0",d1: "0",d2: "0",d3: "0",d4: "0",
+                0: 0, 1: 0, 2: 0, 3: 0, 4: 0,
             })
             .then(()=>{
                 alert("user added");
