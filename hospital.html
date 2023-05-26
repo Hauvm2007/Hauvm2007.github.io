@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script type="module" src="./js/firebase.js"></script>
+    
+</head>
+<body>
+    
+    <div class="navbar">
+      <div class="left_navbar">
+        <!-- <div class="logo"></div> -->
+        <img src="./assest/logo.png" alt="" srcset="" class="logo">
+        <h3>INTERNATIONAL HOSPITAL</h3>
+      </div>
+      <div class="right_navbar">
+        <div class="info">
+          <p class="user_name">Admin</p>
+          <p class="email">UTE@hcmute.com</p>
+        </div>
+        <div class="user_box">
+          <img src="./assest/user.png" alt="" srcset="" class="avatar_user">
+        </div>
+      </div>
+    </div>
+    <!-- <div class="bg_navbar"></div> -->
+    <div class="body">
+      <div class="menu_list">
+        <div class="menu_item" title="Home"><i class="fa-solid fa-house"> <a href="./Main.html"></a></i></div>
+        <div class="menu_item" title="Add Patient"><i class="fa-solid fa-user-plus" onclick="register()"></i></div>
+        <div class="menu_item" title="Change Password"><i class="fa-solid fa-unlock" ></i></div>
+        <div class="menu_item" title="Log Out"><i class="fa-solid fa-right-from-bracket" id="signout"></i></div>
+      </div>
+      <div class="main_body">
+        <div class="header">
+          <div class="header_item flex2">ID</div>
+          <div class="header_item flex4">Name</div>
+          <div class="header_item flex2">Age</div>
+          <div class="header_item flex2">Gender</div>
+          <div class="header_item flex3">Phone</div>
+          <div class="header_item flex4">Address</div>
+          <div class="header_item flex2"></div>
+        </div>
+        <div class="patient_list">
+        </div>
+        <!-- <button id="signout">sign out</button> -->
+      </div>
+    </div>
+    <div id="confirm_del">
+      <div id="warning"> Are you sure delete this patient ?
+        <div>
+          <button id="cancel">No</button>
+          <button id="delete">Yes</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      var pre_id;
+      function active_expand(id){
+        if(id==pre_id){
+          const id_div = document.getElementById(id);
+          id_div.classList.toggle("expand_active");
+        }else{
+          const pre_div = document.getElementById(pre_id);
+          pre_div?.classList.remove("expand_active");
+          const id_div = document.getElementById(id);
+          id_div.classList.toggle("expand_active");
+          pre_id = id;
+        }
+      }
+      function register(){
+        window.location = "register.html";
+      }
+      function delete_patient(id){
+       document.getElementById("confirm_del").style.display = "block";
+
+       document.getElementById("cancel").addEventListener( 'click',cancel)
+       document.getElementById("delete").addEventListener( 'click',deleted)
+       function deleted(){
+        localStorage.setItem("delete_id", id);
+        window.location = "hospital.html";
+       }
+       function cancel(){
+        document.getElementById("confirm_del").style.display = "none";
+       }
+      }
+    </script>
+</body>
+</html>

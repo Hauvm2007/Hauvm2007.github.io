@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn</title>
+    <link rel="stylesheet" href="./css/login_logout.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="module" src="./js/login.js"></script>
+    <!-- <script type src="./js/firebase.js"></script> -->
+
+</head>
+<body>
+    <div class="login_box" >
+        <!-- <div class="logo"></div> -->
+        <img src="./assest/logo.png" alt="" class="logo">
+        <h1>Login</h1>
+        <div class="select_form">
+            <div class="select_form_item selected" id="patient"  onclick="Login_paitent_select(1)">Patient</div>
+            <div class="select_form_item" id="hospital" onclick="Login_paitent_select(2)">Hospital</div>
+        </div>
+        <div class="login_form">
+            <div id="patient_form">
+                <input class="user_input" name="userid" type="text" placeholder="Userid" id="userid">
+                <input class="user_input" name="password" type="password" placeholder="Password" id="password_patient">
+                <div class="ex_form">
+                    <div class="remember">
+                        <input type="checkbox" name="checkbox" id="remember_password">
+                        <label for="remember_password">remember password</label>
+                    </div>
+                    <div>Forgot password?</div>
+                </div>
+                <button class="submit" id="log_patient">Login</button>
+            </div>
+            <div id="hospital_form" class="non_active">
+                <input class="user_input" name="username" type="text" placeholder="Username" id="username">
+                <input class="user_input" name="email" type="text" placeholder="Email" id="email">
+                <input class="user_input" name="password" type="password" placeholder="Password" id="password_hospital">
+                <div class="ex_form">
+                    <div class="remember">
+                        <input type="checkbox" name="checkbox" id="remember_password">
+                        <label for="remember_password">remember password</label>
+                    </div>
+                    <div>Forgot password?</div>
+                </div>
+                <button class="submit" id="log_hospital">Login</button>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="./js/test.js"></script> -->
+    <script> 
+        function Login_paitent_select(select){
+            const patient = document.getElementById("patient_form");
+            const hospital = document.getElementById("hospital_form");
+            const select_patient = document.getElementById("patient");
+            const select_hospital = document.getElementById("hospital");
+            if(select==1){
+                select_patient.classList.add("selected");
+                select_hospital.classList.remove("selected");
+                hospital.classList.add("non_active");
+                patient.classList.remove("non_active");
+            }
+            else{
+                select_hospital.classList.add("selected");
+                select_patient.classList.remove("selected");
+                patient.classList.add("non_active");
+                hospital.classList.remove("non_active");
+            }
+        }
+    </script>
+</body>
+</html>
