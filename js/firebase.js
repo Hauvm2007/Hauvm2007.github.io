@@ -191,7 +191,7 @@ function AddItem() {
                                     <canvas id="p${ID}temp"></canvas>
                                     <div class="average"> 
                                         <h3>Average</h3>
-                                        <p>${parseFloat(Temp_avg.toFixed(0))}</p>
+                                        <p>${parseFloat(Temp_avg.toFixed(2))}</p>
                                     </div>
                                 </div>
                                 <div class="care_value">
